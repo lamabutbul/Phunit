@@ -8,7 +8,7 @@ class Phunit {
     const THROWS_PATTERN = '/@throws .?([a-zA-Z]+)/';
 
     static public function run() {
-        $colors = new Colors();
+        // $colors = new Colors();
         $total = 0;
         $passed = 0;
         $ran = 0;
@@ -25,20 +25,24 @@ class Phunit {
                 $ran++;
                 if ($result) {
                     $passed++;
-                    print $colors->getColoredString('passed', 'green');
+                    // print $colors->getColoredString('passed', 'green');
+                    print 'passed';
                 }
                 else {
-                    print $colors->getColoredString('failed', 'red');
+                    // print $colors->getColoredString('failed', 'red');
+                    print 'failed';
                 }
                 print PHP_EOL;
             }
         }
 
         if ($passed !== $ran) {
-            print sprintf('%d out of %d tests passed, ', $passed, $ran) . $colors->getColoredString(sprintf('%d failed', $ran - $passed), 'red');
+            // print sprintf('%d out of %d tests passed, ', $passed, $ran) . $colors->getColoredString(sprintf('%d failed', $ran - $passed), 'red');
+            printf('%d out of %d tests passed, %d failed', $passed, $ran, $ran - $passed);
         }
         else {
-            print $colors->getColoredString(sprintf('%d out of %d tests passed.', $passed, $ran), 'green');
+            // print $colors->getColoredString(sprintf('%d out of %d tests passed.', $passed, $ran), 'green');
+            printf('%d out of %d tests passed.', $passed, $ran);
         }
     }
 
